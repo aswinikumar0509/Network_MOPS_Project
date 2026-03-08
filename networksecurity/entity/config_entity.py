@@ -5,7 +5,6 @@ from networksecurity.constant import training_pipeline
 print(training_pipeline.PIPELINE_NAME)
 print(training_pipeline.ARTIFACT_DIR)
 
-
 class TrainingPipelineConfig:
     def __init__(self,timestamp=datetime.now()):
         timestamp=timestamp.strftime("%m_%d_%Y_%H_%M_%S")
@@ -16,9 +15,8 @@ class TrainingPipelineConfig:
         self.timestamp: str=timestamp
 
 
-
 class DataIngestionConfig:
-    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+      def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         self.data_ingestion_dir:str=os.path.join(
             training_pipeline_config.artifact_dir,training_pipeline.DATA_INGESTION_DIR_NAME
         )
@@ -34,3 +32,4 @@ class DataIngestionConfig:
         self.train_test_split_ratio: float = training_pipeline.DATA_INGESTION_TRAIN_TEST_SPLIT_RATION
         self.collection_name: str = training_pipeline.DATA_INGESTION_COLLECTION_NAME
         self.database_name: str = training_pipeline.DATA_INGESTION_DATABASE_NAME
+
